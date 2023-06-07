@@ -1,7 +1,8 @@
 package enums;
 
 public enum URLS {
-    FACEBOOK("https://www.facebook.com")
+    FACEBOOK("https://www.facebook.com"),
+    GOOGLE("https://www.google.com");
 
     private final String url;
 
