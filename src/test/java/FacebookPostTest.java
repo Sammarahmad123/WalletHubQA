@@ -43,9 +43,9 @@ public class FacebookPostTest {
         homePage = new HomePage(driver);
 
         // Get Test Data
-        username = JsonReader.getProperty("username");
-        password = JsonReader.getProperty("password");
-        statusMessage = JsonReader.getProperty("statusMessage");
+        username = JsonReader.getProperty("username","facebook");
+        password = JsonReader.getProperty("password","facebook");
+        statusMessage = JsonReader.getProperty("statusMessage","facebook");
 
         // Open the Facebook login page - as pretest condition is to Open Facebook URL
         driverUtils.navigateToURL(URLS.FACEBOOK.getUrl());

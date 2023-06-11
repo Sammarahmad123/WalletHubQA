@@ -2,7 +2,7 @@ package enums;
 
 public enum URLS {
     FACEBOOK("https://www.facebook.com"),
-    GOOGLE("https://www.google.com");
+    WALLET_HUB("https://wallethub.com/join/login");
 
     private final String url;
 

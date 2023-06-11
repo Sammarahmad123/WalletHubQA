@@ -4,8 +4,13 @@ import enums.SelectorType;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.LoggerUtil;
+
+import java.util.List;
 
 public class BasePage {
     protected WebDriver driver;
@@ -21,6 +26,10 @@ public class BasePage {
     public WebElement findElement(SelectorType selectorType, String selector) {
         By locator = getLocator(selectorType, selector);
         return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+    }
+    public List<WebElement> findElements(SelectorType selectorType, String selector) {
+        By locator = getLocator(selectorType, selector);
+        return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
     }
 
     public void click(SelectorType selectorType, String selector) {
@@ -55,5 +64,28 @@ public class BasePage {
                 return By.xpath(selector);
         }
     }
+    public void hoverOverElement(SelectorType selectorType, String selectorValue) {
+        WebElement element = findElement(selectorType,selectorValue);
+        if (element != null) {
+            Actions actions = new Actions(driver);
+            actions.moveToElement(element).perform();
+        } else {
+            LoggerUtil.logInfo("Element not found");
+        }
+    }
+    public void waitForElementVisibility(SelectorType selectorType,String elementToBeSearched) {
+        WebElement element = findElement(selectorType, elementToBeSearched);
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
+    public void waitForElementToBeClickable(SelectorType selectorType,String elementToBeSearched) {
+        WebElement element = findElement(selectorType, elementToBeSearched);
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    public int getNumberOfElements(SelectorType selectorType, String elementToBeSearched) {
+        List<WebElement> elements = findElements(selectorType, elementToBeSearched);
+        return elements.size();
+    }
+
 }
 

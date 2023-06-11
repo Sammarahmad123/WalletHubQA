@@ -18,4 +18,5 @@ public class LoggerUtil {
     public static void logError(String message, Throwable exception) {
         logger.error(message, exception);
     }
+
 }

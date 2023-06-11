@@ -1,5 +1,11 @@
 {
-  "username": "your_email",
-  "password": "your_password",
-  "statusMessage": "Hello World"
+  "facebook":{
+    "username":"{put_your_username}}",
+    "password":"{put_your_password}",
+    "statusMessage":"Hello World"
+  },
+  "walletHub":{
+    "email":"{put_your_email}",
+    "password":"{put_your_password}"
+  }
 }
