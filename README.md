@@ -16,7 +16,7 @@ Setup
 
 Configuration
 1. Open the testdata.json file located in the src/main/resources directory.
-2. Update the values for the username and password fields with your Facebook credentials.
+2. Update the test data in the file.
 
 
 Running the Tests
